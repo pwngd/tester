@@ -7,6 +7,7 @@
 -- 	[9560977192] = true;
 -- }
 local Players = game:GetService("Players")
+local HttpService = game:GetService("HttpService")
 local function getJson(url)
 	local response = HttpService:GetAsync(url)
 	return HttpService:JSONDecode(response)
