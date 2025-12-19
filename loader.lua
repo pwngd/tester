@@ -9,8 +9,10 @@
 local Players = game:GetService("Players")
 local HttpService = game:GetService("HttpService")
 local function getJson(url)
-	local response = HttpService:GetAsync(url)
-	return HttpService:JSONDecode(response)
+	local ok, res = pcall(function()
+		return HttpService:JSONDecode(HttpService:GetAsync(url))
+	end)
+	return ok and res or {}
 end
 local WL = getJson("https://raw.githubusercontent.com/pwngd/tester/refs/heads/main/whitelist.json")
 local function onPlayer(player)
