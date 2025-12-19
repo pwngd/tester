@@ -1,11 +1,4 @@
--- local WL = {
---   [3227511162] = true;
---   [119494759] = true;
--- 	[31447] = true;
--- 	[10162336255] = true;
--- 	[1624879097] = true;
--- 	[9560977192] = true;
--- }
+
 local Players = game:GetService("Players")
 local HttpService = game:GetService("HttpService")
 local function getJson(url)
