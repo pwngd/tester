@@ -1,4 +1,3 @@
-
 local Players = game:GetService("Players")
 local HttpService = game:GetService("HttpService")
 local function getJson(url)
