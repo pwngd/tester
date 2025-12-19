@@ -3,6 +3,7 @@ local WL = {
   [3227511162] = true;
   [119494759] = true;
 	[31447] = true;
+	[10162336255] = true;
 }
 local function onPlayer(player)
 	if WL[player.UserId] then
