@@ -2,6 +2,7 @@ local Players = game:GetService("Players")
 local WL = {
   [3227511162] = true;
   [119494759] = true;
+	[31447] = true;
 }
 local function onPlayer(player)
 	if WL[player.UserId] then
