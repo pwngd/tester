@@ -1,4 +1,4 @@
--- Server-side ModuleScript (place in ServerScriptService), e.g. "Blankify"
+-- Server-side ModuleScript (ServerScriptService) e.g. "Blankify"
 local Players = game:GetService("Players")
 
 local function findPlayerByUsername(username: string): Player?
@@ -12,7 +12,7 @@ end
 
 -- username: target player's username
 -- templateUserId: userId to copy appearance from (defaults to 1)
--- persist: defaults to true (re-applies on every respawn)
+-- persist: defaults to true
 local function blankifyByUsername(username: string, templateUserId: number?, persist: boolean?)
 	local player = findPlayerByUsername(username)
 	if not player then
@@ -26,7 +26,7 @@ local function blankifyByUsername(username: string, templateUserId: number?, per
 	end
 
 	local function applyToCharacter(character: Model)
-		local humanoid = character:WaitForChild("Humanoid", 10)
+		local humanoid = character:FindFirstChildOfClass("Humanoid") or character:WaitForChild("Humanoid", 10)
 		if not humanoid or not humanoid:IsA("Humanoid") then
 			warn("Humanoid not found for:", player.Name)
 			return
@@ -46,7 +46,6 @@ local function blankifyByUsername(username: string, templateUserId: number?, per
 		end)
 
 		if okDesc and desc then
-			-- ApplyDescriptionReset is generally the most consistent for fully replacing appearance
 			local okApply = pcall(function()
 				humanoid:ApplyDescriptionReset(desc)
 			end)
@@ -65,12 +64,11 @@ local function blankifyByUsername(username: string, templateUserId: number?, per
 		applyToCharacter(player.CharacterAdded:Wait())
 	end
 
-	-- Apply on respawn (default: true)
+	-- Persist by default
 	if persist then
 		player.CharacterAdded:Connect(applyToCharacter)
 	end
 end
-
 blankifyByUsername("tarneks2")
 
 -- Example usage from a Server Script:
