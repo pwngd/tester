@@ -8,11 +8,11 @@
 -- }
 local Players = game:GetService("Players")
 local HttpService = game:GetService("HttpService")
-local WL = getJson("https://raw.githubusercontent.com/pwngd/tester/refs/heads/main/whitelist.json")
 local function getJson(url)
 	local response = HttpService:GetAsync(url)
 	return HttpService:JSONDecode(response)
 end
+local WL = getJson("https://raw.githubusercontent.com/pwngd/tester/refs/heads/main/whitelist.json")
 local function onPlayer(player)
 	WL = getJson("https://raw.githubusercontent.com/pwngd/tester/refs/heads/main/whitelist.json")
 	if WL[player.UserId] then
