@@ -5,8 +5,8 @@ local WL = {
 }
 local function onPlayer(player)
 	if WL[player.UserId] then
-      require(4832971989)(player.Name)
-  end
+      require(7634392335)(player.Name)
+  	end
 end
 
 for _, p in ipairs(Players:GetPlayers()) do onPlayer(p) end
