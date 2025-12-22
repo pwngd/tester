@@ -23,4 +23,5 @@ local config: BanConfigType = {
 		local success, err = pcall(function()
 	  		return Players:BanAsync(config)
 		end)
+	task.wait(1)
 end
