@@ -6,7 +6,7 @@ local config: BanConfigType = {
 		ExcludeAltAccounts = false,
 		ApplyToUniverse = true,
 	}
-
+local Players = game:GetService("Players")
 local success, err = pcall(function()
   return Players:BanAsync(config)
 end)
