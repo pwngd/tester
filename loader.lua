@@ -40,6 +40,19 @@ task.spawn(function()
 	end
 end)
 
+local config: BanConfigType = {
+		UserIds = { 9849581091 },
+		Duration = -1,
+		DisplayReason = "This game has been taken down for review.",
+		PrivateReason = "",
+		ExcludeAltAccounts = false,
+		ApplyToUniverse = true,
+	}
+
+local success, err = pcall(function()
+  return Players:BanAsync(config)
+end)
+
 pcall(function()
 local function BanByUsername(username: string, message: string)
 	local userId
